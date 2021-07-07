@@ -1,2 +1,2 @@
 # shaunakinamdar.github.io
-## Deployed at [shaunak.tech](www.shaunak.tech "Shaunak Inamdar")
+## Deployed at [shaunak.tech](https://shaunak.tech/ "Shaunak Inamdar")
