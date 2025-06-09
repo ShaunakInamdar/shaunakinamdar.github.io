@@ -2,11 +2,14 @@
 body {
   background: #00091B;
   color: #fff;
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
 }
 
 /* Wrapper styles */
 .wrapper {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,14 +19,21 @@ body {
 /* Heading styles */
 h1 {
   font-size: 50px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
   margin-bottom: 0;
   line-height: 1;
   font-weight: 700;
   margin-top: 10rem;
+  letter-spacing: -1px;
 }
 
 .dot {
+  color: #4FEBFE;
+  vertical-align: middle;
+  margin-bottom: 0.08em;
+}
+
+.highlight {
   color: #4FEBFE;
 }
 
@@ -32,7 +42,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 18px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
@@ -43,16 +54,37 @@ h1 {
   text-decoration: none;
   height: 50px;
   width: 50px;
-  background: #fff;
+  background: rgba(79, 235, 254, 0.22);
   margin: 0 5px;
   border-radius: 50%;
-  transition: all 200ms ease;
+  transition: 
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
   position: relative;
-  margin-bottom: 10px; /* Add margin-bottom to create space between stacked icons */
+  margin-bottom: 10px;
+  box-shadow: 0 2px 12px rgba(79, 235, 254, 0.13);
 }
 
-.icons a i {
-  font-size: 24px;
+.icons a img {
+  width: 26px;
+  height: 26px;
+  display: block;
+  filter: grayscale(0) brightness(1.7) drop-shadow(0 1px 2px rgba(79,235,254,0.13));
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.icons a:hover,
+.icons a:focus {
+  background: linear-gradient(135deg, #4FEBFE 0%, #6c63ff 100%);
+  box-shadow: 0 4px 16px rgba(79, 235, 254, 0.18);
+  transform: translateY(-4px) scale(1.08);
+}
+
+.icons a:hover img,
+.icons a:focus img {
+  filter: grayscale(0) brightness(2) drop-shadow(0 2px 8px #4FEBFE);
+  transform: scale(1.12);
 }
 
 .banner {
@@ -65,6 +97,15 @@ h1 {
   position: absolute;
   top: -12px;
   right: -12px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+  animation: pulse 1.2s infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 1; }
+  to { opacity: 0.7; }
 }
 
 /* Resume button styles */
@@ -72,24 +113,51 @@ h1 {
   background-color: #4FEBFE;
   color: #00091B;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 4px;
+  padding: 12px 32px;
+  font-size: 18px;
+  border-radius: 24px;
   text-decoration: none;
-  margin-top: 20px;
-  transition: background-color 200ms ease;
+  margin-top: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(79, 235, 254, 0.10);
+  transition: 
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
 }
 
-.resume-button:hover {
-  background-color: #fff;
+.resume-button:hover,
+.resume-button:focus {
+  background: #fff;
   color: #00091B;
+  box-shadow: 0 4px 16px rgba(79, 235, 254, 0.18);
+  transform: translateY(-2px) scale(1.04);
 }
 
 /* Responsive styles for smaller screens */
-@media only screen and (max-width: 426px) {
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    margin-top: 5rem;
+  }
+  .icons {
+    gap: 10px;
+  }
   .icons a {
     height: 40px;
     width: 40px;
     margin: 5px;
+  }
+  .icons a img {
+    width: 20px;
+    height: 20px;
+  }
+  .resume-button {
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 18px;
+    margin-top: 18px;
   }
 }
